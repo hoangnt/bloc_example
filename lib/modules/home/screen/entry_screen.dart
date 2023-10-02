@@ -3,7 +3,7 @@ import 'package:bloc_example/modules/home/blocs/entry_bloc.dart';
 import 'package:bloc_example/modules/home/blocs/entry_events.dart';
 import 'package:bloc_example/modules/home/blocs/entry_state.dart';
 import 'package:bloc_example/modules/home/screen/home_screen.dart';
-import 'package:bloc_example/modules/settings/settings_screen.dart';
+import 'package:bloc_example/modules/settings/screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,12 +15,17 @@ class EntryScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("this is appbar"),
       ),
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        children: [
-          HomeScreen(),
-          SettingsScreen(),
-        ],
+      body: BlocBuilder<EntryBloc, EntryState>(
+        builder: (context, state) {
+          return PageView(
+            controller: bloc.pageController,
+            physics: NeverScrollableScrollPhysics(),
+            children: [
+              HomeScreen(),
+              SettingsScreen(),
+            ],
+          );
+        },
       ),
       bottomNavigationBar: BlocBuilder<EntryBloc, EntryState>(
         builder: (context, state) {

@@ -1,5 +1,6 @@
 import 'package:bloc_example/modules/home/blocs/entry_events.dart';
 import 'package:bloc_example/modules/home/blocs/entry_state.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EntryBloc extends Bloc<EntryEvents, EntryState> {
@@ -8,13 +9,14 @@ class EntryBloc extends Bloc<EntryEvents, EntryState> {
     on<ChangeTabEvent>(_changeTab);
   }
 
-  String text = "asdasd";
+  final PageController pageController = PageController();
 
   void _goHome(GoHomeEvent event, Emitter<EntryState> emit) {
     emit(state.copyWith(index: 0));
   }
 
   void _changeTab(ChangeTabEvent event, Emitter<EntryState> emit) {
+    pageController.jumpToPage(event.index);
     emit(state.copyWith(index: event.index));
   }
 }

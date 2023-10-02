@@ -1,6 +1,7 @@
 import 'package:bloc_example/common/constant/app_color.dart';
 import 'package:bloc_example/modules/home/blocs/entry_bloc.dart';
 import 'package:bloc_example/modules/home/screen/entry_screen.dart';
+import 'package:bloc_example/modules/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => EntryBloc()),
+        BlocProvider(create: (context) => SettingsBloc()),
       ],
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
