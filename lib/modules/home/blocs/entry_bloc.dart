@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EntryBloc extends Bloc<EntryEvents, EntryState> {
-  EntryBloc() : super(EntryState(currentIndex: 0)) {
+  EntryBloc() : super(EntryState()) {
     on<GoHomeEvent>(_goHome);
     on<ChangeTabEvent>(_changeTab);
   }
@@ -24,7 +24,7 @@ class EntryBloc extends Bloc<EntryEvents, EntryState> {
 // kiểu viết với, bỏ qua event
 // emit tích hợp sẵn
 class EntryCubit extends Cubit<EntryState> {
-  EntryCubit() : super(EntryState(currentIndex: 0));
+  EntryCubit() : super(EntryState());
 
   void goHome() {
     emit(state.copyWith(index: 0));

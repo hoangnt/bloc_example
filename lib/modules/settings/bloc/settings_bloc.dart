@@ -3,7 +3,7 @@ import 'package:bloc_example/modules/settings/bloc/settings_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsBloc extends Bloc<SettingsEvents, SettingsState> {
-  SettingsBloc() : super(SettingsState(level: 1)) {
+  SettingsBloc() : super(SettingsState()) {
     on(_changeLevel);
   }
 
