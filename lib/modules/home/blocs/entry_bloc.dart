@@ -13,11 +13,12 @@ class EntryBloc extends Bloc<EntryEvents, EntryState> {
 
   void _goHome(GoHomeEvent event, Emitter<EntryState> emit) {
     emit(state.copyWith(index: 0));
+    pageController.jumpToPage(0);
   }
 
   void _changeTab(ChangeTabEvent event, Emitter<EntryState> emit) {
-    pageController.jumpToPage(event.index);
     emit(state.copyWith(index: event.index));
+    pageController.jumpToPage(event.index);
   }
 }
 

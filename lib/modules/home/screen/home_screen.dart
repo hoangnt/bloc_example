@@ -6,15 +6,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
-        child: SizedBox(
-          width: 100,
-          height: 40,
-          child: ElevatedButton(
-            onPressed: () {
-              print("object");
-            },
-            child: Text("press here"),
-          ),
+        child: Column(
+          children: [
+            Text("this is home page"),
+          ],
         ),
       ),
     );
